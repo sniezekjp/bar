@@ -1,4 +1,6 @@
-ES6(Babel) + requirejs + angularjs(1.3) + lazy loading  
+ES6(Babel) + angularjs(1.3) + requirejs 
 npm install  
 bower install  
-then serve the src directory
+then serve the src directory  
+supports lazy loading..
+
