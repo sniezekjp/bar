@@ -1,1 +1,1 @@
-ES6(Babel) + requirejs + angularjs + lazy loading
+ES6(Babel) + requirejs + angularjs(1.3) + lazy loading
