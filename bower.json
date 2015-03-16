@@ -1,0 +1,22 @@
+{
+  "name": "jp-babel",
+  "version": "0.0.1",
+  "authors": [
+    "JP <jsniezek@crowdskout.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.13",
+    "angular": "~1.3.14",
+    "jquery": "~2.1.3",
+    "requirejs": "~2.1.16"
+  }
+}
