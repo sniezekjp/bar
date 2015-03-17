@@ -14,3 +14,7 @@ app.config(function($stateProvider) {
   })
   /// states (do not remove)
 ;});
+
+app.run(function(ModuleList) {
+  ModuleList.add('dashboard');
+});

@@ -6,7 +6,8 @@ require.config({
     router  : 'vendor/angular-ui-router/release/angular-ui-router',
     app     : 'app/app',
     modules : 'modules',
-    lazy    : 'app/lazy'
+    lazy    : 'app/lazy',
+    base    : 'base'
   },
   shim: {
     jquery: {

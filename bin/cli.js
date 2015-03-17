@@ -33,7 +33,7 @@ if(args[0] === 'generate') {
 
       states = states.replace(/MODULE/g, capitalized).replace(/_module/g, module);
       controller = controller.replace(/MODULE/g, capitalized);
-      service = service.replace(/MODULE/g, capitalized);
+      service = service.replace(/MODULE/g, capitalized).replace(/_module/g, module);
       view = view.replace(/_module/g, module);
 
       fs.outputFileSync(path.join(newModuleDir, 'states.js'), states);

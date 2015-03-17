@@ -2,10 +2,10 @@ import app from 'lazy';
 import Service from 'base/Service';
 // dependencies (do not remove)
 
-class MODULEService extends Service {
+class MainService extends Service {
   constructor() {
-    this.endpoint = '/_module';
+    this.endpoint = '/main';
   }
 }
 
-app.service('MODULEService', MODULEService);
+app.service('MainService', MainService);

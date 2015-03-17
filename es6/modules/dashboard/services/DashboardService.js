@@ -1,6 +1,11 @@
 import app from 'lazy';
+import Service from 'base/Service';
 // dependencies (do not remove)
 
-app.factory('DashboardService', function() {
-  return {};
-});
+class DashboardService extends Service {
+  constructor() {
+    this.endpoint = '/dashboard';
+  }
+}
+
+app.service('DashboardService', DashboardService);

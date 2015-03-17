@@ -5,7 +5,7 @@ app.config(function($stateProvider) {
   $stateProvider.state('account', {
     url: '/account',
     templateUrl: 'modules/account/views/account.tpl.html',
-    controller: 'AccountController',
+    controller: 'AccountController as ctrl',
     resolve: {
       lazy: function(Lazy) {
         return Lazy.load('modules/account/controllers/AccountController');
@@ -14,3 +14,7 @@ app.config(function($stateProvider) {
   })
   /// states (do not remove)
 ;});
+
+app.run(function(ModuleList) {
+  ModuleList.add('account');
+});
