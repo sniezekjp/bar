@@ -1,15 +1,15 @@
 class Controller {
   edit() {
-    console.log('editing');
+    return true;
   }
   update() {
-    this._service.update();
+    return this._service.update();
   }
   create() {
-    this._service.create();
+    return this._service.create();
   }
   destroy() {
-    this._service.destroy();
+    return this._service.destroy();
   }
 }
 export default Controller;
