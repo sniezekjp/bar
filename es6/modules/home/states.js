@@ -12,9 +12,5 @@ app.config(function($stateProvider) {
       }
     }
   })
-  .state('test', {
-    url: '/',
-    template: '<a ui-sref="home">home</a>'
-  })
   /// states (do not remove)
 ;});
