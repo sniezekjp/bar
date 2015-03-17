@@ -5,7 +5,7 @@ app.config(function($stateProvider) {
   $stateProvider.state('dashboard', {
     url: '/dashboard',
     templateUrl: 'modules/dashboard/views/dashboard.tpl.html',
-    controller: 'DashboardController',
+    controller: 'DashboardController as ctrl',
     resolve: {
       lazy: function(Lazy) {
         return Lazy.load('modules/dashboard/controllers/DashboardController');

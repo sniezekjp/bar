@@ -29,6 +29,14 @@ module.exports = function(grunt) {
           src: ['**/views/**/*.html'],
           dest: 'src/modules'
         }]
+      },
+      components: {
+        files: [{
+          expand: true,
+          cwd: 'es6/components',
+          src: '**/*.html',
+          dest: 'src/components'
+        }]
       }
     }
   });

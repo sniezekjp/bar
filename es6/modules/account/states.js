@@ -12,6 +12,10 @@ app.config(function($stateProvider) {
       }
     }
   })
+  .state('account.new', {
+    url: '/new',
+    templateUrl: 'modules/account/views/new.tpl.html',
+  })
   /// states (do not remove)
 ;});
 

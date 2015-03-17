@@ -6,6 +6,7 @@ var args = process.argv.slice(2);
 
 var cwd = process.cwd();
 var modulesDir = path.join(cwd, 'es6', 'modules');
+var compsDir = path.join(cwd, 'es6', 'components');
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -51,6 +52,30 @@ if(args[0] === 'generate') {
       }
 
       console.log(capitalized + ' module created!');
+    });
+    process.exit();
+  } else if(args[1] === 'component') {
+    if(!args[2]) { 
+      console.log("Please provide a component name");
+      process.exit();
+    }
+    var components = args[2].split(',');
+    components.forEach(function(component) {
+      var componentBp = fs.readFileSync(path.join(cwd,'bin', 'boilerplates', 'component.js'), {encoding: 'utf-8'});
+      componentBp = componentBp.replace(/_component/g, component);
+
+      fs.outputFileSync(path.join(compsDir,component, component + '.js'), componentBp);
+      fs.outputFileSync(path.join(compsDir,component, component + '.tpl.html'), "default "+component+" template");
+
+      var dep = "import " + component + " from " + "'./"+component+"/"+component+"';";
+      var pattern = '/// dependencies (do not remove)';
+      var compsFile = path.join(compsDir, 'components.js');
+      var compsContent = fs.readFileSync(compsFile, {encoding: 'utf-8'});
+      if(compsContent.indexOf(dep) === -1) {
+        compsContent = compsContent.replace(pattern, dep + "\n" + pattern);
+        fs.outputFileSync(compsFile, compsContent);
+      }
+      console.log(component + ' component created!');
     });
     process.exit();
   }
