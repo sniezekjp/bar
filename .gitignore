@@ -3,5 +3,6 @@ src/app
 src/modules
 src/base
 src/components
+src/assets/css/*.css
 node_modules
 .sass-cache
