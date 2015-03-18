@@ -41,6 +41,7 @@ if(args[0] === 'generate') {
       fs.outputFileSync(path.join(newModuleDir,'controllers', capitalized + 'Controller.js'), controller);
       fs.outputFileSync(path.join(newModuleDir,'services', capitalized + 'Service.js'), service);
       fs.outputFileSync(path.join(newModuleDir,'views', module + '.tpl.html'), view);
+      fs.outputFileSync(path.join(newModuleDir,'scss', module + '.scss'), "");
 
       var dep = "import " + module + " from " + "'modules/"+module+"/states';";
       var pattern = '/// dependencies (do not remove)';
@@ -49,6 +50,15 @@ if(args[0] === 'generate') {
       if(bsContent.indexOf(dep) === -1) {
         bsContent = bsContent.replace(pattern, dep + "\n" + pattern);
         fs.outputFileSync(bsFile, bsContent);
+      }
+
+      var dep = "@import 'es6/modules/"+module+"/scss/"+module+"';";
+      var pattern = '/// modules';
+      var scssFile = path.join(cwd,'src', 'assets', 'css', 'style.scss');
+      var scssContent = fs.readFileSync(scssFile, {encoding: 'utf-8'});
+      if(scssContent.indexOf(dep) === -1) {
+        scssContent = scssContent.replace(pattern, pattern +"\n"+dep);
+        fs.outputFileSync(scssFile, scssContent);
       }
 
       console.log(capitalized + ' module created!');
@@ -65,6 +75,7 @@ if(args[0] === 'generate') {
       componentBp = componentBp.replace(/_component/g, component);
 
       fs.outputFileSync(path.join(compsDir,component, component + '.js'), componentBp);
+      fs.outputFileSync(path.join(compsDir,component, component + '.scss'), "");
       fs.outputFileSync(path.join(compsDir,component, component + '.tpl.html'), "default "+component+" template");
 
       var dep = "import " + component + " from " + "'./"+component+"/"+component+"';";
@@ -75,6 +86,15 @@ if(args[0] === 'generate') {
         compsContent = compsContent.replace(pattern, dep + "\n" + pattern);
         fs.outputFileSync(compsFile, compsContent);
       }
+
+      var dep = "@import 'es6/components/"+component+"/"+component+"';";
+      var pattern = '/// components';
+      var scssFile = path.join(cwd,'src', 'assets', 'css', 'style.scss');
+      var scssContent = fs.readFileSync(scssFile, {encoding: 'utf-8'});
+      if(scssContent.indexOf(dep) === -1) {
+        scssContent = scssContent.replace(pattern, pattern + "\n" + dep);
+        fs.outputFileSync(scssFile, scssContent);
+      }      
       console.log(component + ' component created!');
     });
     process.exit();
