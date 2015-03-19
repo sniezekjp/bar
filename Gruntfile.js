@@ -68,15 +68,18 @@ module.exports = function(grunt) {
           './src/assets/css/style.css': './src/assets/css/style.scss'
         }
       }
-    }
+    },
+    // Clean tasks
+    clean: ['./src/modules', './src/components']
   });
 
   grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-sass')
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-newer');
 
-  grunt.registerTask("dev", ["newer:babel", "newer:copy", "sass"]);
+  grunt.registerTask("dev", ["clean", "newer:babel", "newer:copy", "sass"]);
   grunt.registerTask("default", ["dev", "watch"]);
 }
