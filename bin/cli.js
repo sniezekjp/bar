@@ -94,8 +94,55 @@ if(args[0] === 'generate') {
       if(scssContent.indexOf(dep) === -1) {
         scssContent = scssContent.replace(pattern, pattern + "\n" + dep);
         fs.outputFileSync(scssFile, scssContent);
-      }      
+      }
       console.log(component + ' component created!');
+    });
+    process.exit();
+  }
+} else if(args[0] === 'remove') {
+  if(!args[2]) {
+    console.log('Please provide a module or component name!');
+    process.exit();
+  }
+  if(args[1] === 'module') {
+    var modules = args[2].split(',');
+    modules.forEach(function(module) {
+      var dep = "\nimport " + module + " from " + "'modules/"+module+"/states';";
+      var bsFile = path.join(cwd,'es6', 'app', 'bootstrap.js');
+      var bsContent = fs.readFileSync(bsFile, {encoding: 'utf-8'});
+      bsContent = bsContent.replace(dep, "");
+      fs.outputFileSync(bsFile, bsContent);
+
+      var dep = "\n@import 'es6/modules/"+module+"/scss/"+module+"';";
+      var scssFile = path.join(cwd,'src', 'assets', 'css', 'style.scss');
+      var scssContent = fs.readFileSync(scssFile, {encoding: 'utf-8'});    
+      scssContent = scssContent.replace(dep, "");
+      fs.outputFileSync(scssFile, scssContent);
+
+      fs.removeSync(path.join(modulesDir, module));
+      console.log(module + ' has been removed!');
+    });
+    process.exit();
+
+  } else if(args[1] === 'component') {
+    var components = args[2].split(",");
+    components.forEach(function(component) {
+      var dep = "\n@import 'es6/components/"+component+"/"+component+"';";
+      var scssFile = path.join(cwd,'src', 'assets', 'css', 'style.scss');
+      var scssContent = fs.readFileSync(scssFile, {encoding: 'utf-8'});
+      scssContent = scssContent.replace(dep, "");
+      fs.outputFileSync(scssFile, scssContent);
+
+      var dep = "\nimport " + component + " from " + "'./"+component+"/"+component+"';";
+      var compsFile = path.join(compsDir, 'components.js');
+      var compsContent = fs.readFileSync(compsFile, {encoding: 'utf-8'});
+      compsContent = compsContent.replace(dep, "");
+      fs.outputFileSync(compsFile, compsContent);
+
+      var compFolder = path.join(compsDir, component);
+      fs.removeSync(compFolder);
+
+      console.log(component + ' has been removed!');
     });
     process.exit();
   }
