@@ -6,3 +6,4 @@ src/components
 src/assets/css/*.css
 node_modules
 .sass-cache
+tests/**
