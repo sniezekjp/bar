@@ -2,7 +2,8 @@ import app from 'app';
 /// dependencies
 
 app.config(function($stateProvider) {
-  $stateProvider.state('account', {
+  $stateProvider
+  .state('account', {
     url: '/account',
     templateUrl: 'modules/account/views/account.tpl.html',
     controller: 'AccountController as ctrl',
