@@ -1,3 +1,27 @@
-<div class="account-edit">
-  edit text
+<div class="row">
+  <div class="pagewrapper" style="font-size:8px">
+  	<div ui-view>
+      <table class="columns medium-12">
+        <thead>
+          <tr>
+            <th><a href="" ng-click="order='name'">Account Name</a> | <a href="" ui-sref="account.new" style="font-size:11px">New account</a><form ng-submit="search(searchTerm.name)">
+          <input type="text" ng-model='searchTerm.name'>
+        </form></th>
+            <th><a href="" ng-click="order='broker'">Broker</a> | <a href="" ng-click="resetSelected()" style="font-size:11px">All Brokers</a><select ng-model="selected.broker" ng-options="b as asBroker(b) for b in brokers"></select></th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="account in accounts | filter:filterDeleted | filter:searchTerm | filter:byBroker | orderBy:order:asc">
+          <td>{{account.name}}</td>
+          <td>{{account.broker.first}} {{account.broker.last}}</td>
+          <td>
+            <a href="" ng-click="edit(account)">Edit</a>  |  
+            <a href="" ng-click="delete(account)">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>     
+    </div>
+  </div>
 </div>

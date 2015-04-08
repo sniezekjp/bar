@@ -1,1 +1,38 @@
-calllog.tpl.html
+<div class="row">
+  
+  <div class="pagewrapper">
+    
+      <h3>Call Logs</h3>
+      <a href="" ui-sref="calllog.new">New call log</a>
+
+      <div class="columns medium-12">
+        <div ui-view>
+          <div class="row" style="margin-top: 40px;">
+            <table class="columns medium-12">
+              <thead>
+                <tr>
+                  <th><a href="" ng-click="order='timeOfCall'">Date/Time</a></th>
+                  <th><a href="" ng-click="order='customAccount.name'">Account</a></th>
+                  <th><a href="" ng-click="order='contact'">Contact</a></th>
+                  <th><a href="" ng-click="order='organizer'">Organizer</a></th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="calllog in calllogs | filter:filterDeleted | orderBy:order:asc">
+                <td>{{calllog.timeOfCall | date:' M/d/yy h:mm a'}}</td>
+                <td>{{calllog.customAccount.name}}</td>
+                <td>{{calllog.contact}}</td>
+                <td>{{calllog.organizer}}</td>
+                <td>
+                  <a href="" ng-click="edit(calllog)">Edit</a>  |  
+                  <a href="" ng-click="delete(calllog)">Delete</a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>      
+        </div>
+      </div>
+    </div>
+</div>

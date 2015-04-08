@@ -2,6 +2,13 @@
 @import '../../vendor/foundation/css/normalize.css';
 @import '../../vendor/foundation/css/foundation.css';
 
+/// theme
+// @import '../theme/bootstrap.css';
+@import '../theme/font-awesome.min.css';
+@import '../theme/material-design-iconic-font.min.css';
+@import '../theme/materialadmin.css';
+@import '../theme/topNav.css';
+
 /// components
 @import 'es6/components/topNav/topNav';
 
