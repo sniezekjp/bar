@@ -7,7 +7,9 @@ require.config({
     app     : 'app/app',
     modules : 'modules',
     lazy    : 'app/lazy',
-    base    : 'base'
+    base    : 'base',
+    handson : 'vendor/handsontable/dist/handsontable',
+    uihandson : 'vendor/angular-ui-handsontable/dist/ngHandsontable'
   },
   shim: {
     jquery: {
@@ -17,7 +19,8 @@ require.config({
       exports: 'angular',
       deps: ['jquery']
     },
-    router: ['angular']
+    router: ['angular', 'uihandson'],
+    uihandson: ['angular', 'handson']
   },
   deps: ['../app/bootstrap']
 });
