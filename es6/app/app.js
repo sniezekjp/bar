@@ -1,7 +1,7 @@
 
 import angular from 'angular';
 
-var app = angular.module('app', ['ui.router'])
+var app = angular.module('app', ['ui.router', 'ngHandsontable'])
 
 .config(function($urlRouterProvider) {
   $urlRouterProvider.otherwise('/account');
