@@ -5,7 +5,7 @@ define(["exports", "module", "angular"], function (exports, module, _angular) {
 
   var angular = _interopRequire(_angular);
 
-  var app = angular.module("app", []);
+  var app = angular.module("app", ["templates"]);
   module.exports = app;
 });
 //# sourceMappingURL=_app.js.map

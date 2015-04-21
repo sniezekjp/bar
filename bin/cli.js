@@ -5,8 +5,8 @@ var fs = require('fs-extra');
 var args = process.argv.slice(2);
 
 var cwd = process.cwd();
-var modulesDir = path.join(cwd, 'es6', 'modules');
-var compsDir = path.join(cwd, 'es6', 'components');
+var modulesDir = path.join(cwd, 'src', 'modules');
+var compsDir = path.join(cwd, 'src', 'components');
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -45,16 +45,16 @@ if(args[0] === 'generate') {
 
       var dep = "import " + module + " from " + "'modules/"+module+"/states';";
       var pattern = '/// dependencies (do not remove)';
-      var bsFile = path.join(cwd,'es6', 'app', 'bootstrap.js');
+      var bsFile = path.join(cwd,'src', 'app', 'bootstrap.js');
       var bsContent = fs.readFileSync(bsFile, {encoding: 'utf-8'});
       if(bsContent.indexOf(dep) === -1) {
         bsContent = bsContent.replace(pattern, dep + "\n" + pattern);
         fs.outputFileSync(bsFile, bsContent);
       }
 
-      var dep = "@import 'es6/modules/"+module+"/scss/"+module+"';";
+      var dep = "@import 'src/modules/"+module+"/scss/"+module+"';";
       var pattern = '/// modules';
-      var scssFile = path.join(cwd,'src', 'assets', 'css', 'style.scss');
+      var scssFile = path.join(cwd,'dist', 'assets', 'css', 'style.scss');
       var scssContent = fs.readFileSync(scssFile, {encoding: 'utf-8'});
       if(scssContent.indexOf(dep) === -1) {
         scssContent = scssContent.replace(pattern, pattern +"\n"+dep);
@@ -87,9 +87,9 @@ if(args[0] === 'generate') {
         fs.outputFileSync(compsFile, compsContent);
       }
 
-      var dep = "@import 'es6/components/"+component+"/"+component+"';";
+      var dep = "@import 'src/components/"+component+"/"+component+"';";
       var pattern = '/// components';
-      var scssFile = path.join(cwd,'src', 'assets', 'css', 'style.scss');
+      var scssFile = path.join(cwd,'dist', 'assets', 'css', 'style.scss');
       var scssContent = fs.readFileSync(scssFile, {encoding: 'utf-8'});
       if(scssContent.indexOf(dep) === -1) {
         scssContent = scssContent.replace(pattern, pattern + "\n" + dep);

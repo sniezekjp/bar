@@ -7,7 +7,7 @@ describe('DashboardService', function () {
   beforeEach(module('app'));
 
   describe('get()', function () {
-    beforeEach(inject(function (DashboardService, _$httpBackend_) {
+    beforeEach(inject(function (DashboardService, _$httpBackend_, $http) {
       Service = DashboardService;
       $httpBackend = _$httpBackend_;
       requestHandler = $httpBackend.when('GET', '/data');

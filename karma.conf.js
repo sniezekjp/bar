@@ -15,10 +15,17 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern:'dist/**/*.js', included:false},
-      {pattern: 'tests/**/unit/*.spec.js', included: false},
-      'tests/config.js'
+        'tests/config.js',
+        {pattern:'dist/**/*.js', included:false},
+        {pattern: 'tests/**/unit/*.spec.js', included: false},
+        'dist/modules/**/*.html'
     ],
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'dist/',
+      requireAngular: true,
+      moduleName: 'templates'
+    }, 
 
 
     // list of files to exclude
@@ -29,6 +36,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        'dist/modules/**/*.html': 'ng-html2js'
     },
 
 
