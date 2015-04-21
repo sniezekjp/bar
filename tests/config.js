@@ -9,7 +9,7 @@ for (var file in window.__karma__.files) {
 
 requirejs.config({
     // Karma serves files from '/base'
-    baseUrl: '/base/src',
+    baseUrl: '/base/dist',
 
     // aliases
     paths: {
@@ -17,9 +17,9 @@ requirejs.config({
       angular: "vendor/angular/angular",
       mocks: "vendor/angular-mocks/angular-mocks",
       router: "vendor/angular-ui-router/release/angular-ui-router",
-      app: "app/testApp",
+      app: "app/_app",
       modules: "modules",
-      lazy: "app/testApp",
+      lazy: "app/_app",
       base: "base"
     },
 

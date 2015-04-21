@@ -10,15 +10,15 @@ module.exports = function(grunt) {
       dev: {
         files: [{
           expand: true,
-          cwd: 'es6',
+          cwd: 'src',
           src: ['**/*.js', '!tests/**/*.js'],
-          dest: './src'
+          dest: './dist'
         }]
       },
       unit: {
         files: [{
           expand: true,
-          cwd: 'es6/tests',
+          cwd: 'src/tests',
           src: ['**/unit/*.js'],
           dest: './tests'
         }]
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'es6/tests',
+          cwd: 'src/tests',
           src: ['**/e2e/*.js'],
           dest: './tests'
         }]         
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
     // Watch tasks
     watch: {
       es: {
-        files: ['es6/**/*.js', 'es6/**/*.html'],
+        files: ['src/**/*.js', 'src/**/*.html'],
         tasks: ['dev']
       },
       src: {
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         tasks: ['dev']
       },
       scss: {
-        files: ['es6/**/*.scss', 'src/assets/**/*.scss'],
+        files: ['src/**/*.scss', 'dist/assets/**/*.scss'],
         tasks: ['sass']
       }
     },
@@ -55,17 +55,17 @@ module.exports = function(grunt) {
       views: {
         files: [{
           expand: true,
-          cwd: 'es6/modules',
+          cwd: 'src/modules',
           src: ['**/views/**/*.html'],
-          dest: 'src/modules'
+          dest: 'dist/modules'
         }]
       },
       components: {
         files: [{
           expand: true,
-          cwd: 'es6/components',
+          cwd: 'src/components',
           src: '**/*.html',
-          dest: 'src/components'
+          dest: 'dist/components'
         }]
       }
     },
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
           loadPath: '.'
         },
         files: {
-          './src/assets/css/style.css': './src/assets/css/style.scss'
+          './dist/assets/css/style.css': './dist/assets/css/style.scss'
         }
       }
     }
