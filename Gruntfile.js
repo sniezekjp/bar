@@ -15,13 +15,24 @@ module.exports = function(grunt) {
           dest: './src'
         }]
       },
-      tests: {
+      unit: {
         files: [{
           expand: true,
           cwd: 'es6/tests',
-          src: ['**/*.js'],
+          src: ['**/unit/*.js'],
           dest: './tests'
-        }]        
+        }]
+      },
+      e2e: {
+        options: {
+          modules: 'common'         
+        },
+        files: [{
+          expand: true,
+          cwd: 'es6/tests',
+          src: ['**/e2e/*.js'],
+          dest: './tests'
+        }]         
       }
     },
     // Watch tasks
