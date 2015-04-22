@@ -1,9 +1,5 @@
-dist/vendor
-dist/app
-dist/modules
-dist/base
-dist/components
-dist/assets/css/*.css
+dist
+src/vendor
 tests/**
 !tests/config.js
 node_modules

@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'src',
-          src: ['**/*.js', '!tests/**/*.js', '!**/*.spec.js'],
+          src: ['**/*.js', '!tests/**/*.js', '!**/*.spec.js', '!vendor/**', '!bootstrap/config.js'],
           dest: './dist'
         }]
       },
@@ -39,15 +39,24 @@ module.exports = function(grunt) {
     watch: {
       es: {
         files: ['src/**/*.js'],
-        tasks: ['dev']
+        tasks: ['dev'],
+        options: {
+          livereload: true
+        }
       },
       src: {
-        files: ['Gruntfile.js'],
-        tasks: ['dev']
+        files: ['Gruntfile.js', 'src/index.html', 'src/modules/**/*.html', 'src/components/**/*.html'],
+        tasks: ['dev'],
+        options: {
+          livereload: true
+        }
       },
       scss: {
         files: ['src/**/*.scss', 'dist/assets/**/*.scss'],
-        tasks: ['sass']
+        tasks: ['sass'],
+        options: {
+          livereload: true
+        }
       }
     },
     // Copy tasks
@@ -67,6 +76,22 @@ module.exports = function(grunt) {
           src: '**/*.html',
           dest: 'dist/components' 
         }]
+      },
+      vendor: {
+        files: [{
+          expand: true,
+          cwd: 'src/vendor',
+          src: '**/*',
+          dest: 'dist/vendor' 
+        }]        
+      },
+      index: {
+        files: [{
+          expand: true,
+          cwd: 'src',
+          src: ['index.html','assets/images/**/*', 'bootstrap/config.js'],
+          dest: 'dist' 
+        }] 
       }
     },
     // Sass tasks
@@ -76,7 +101,7 @@ module.exports = function(grunt) {
           loadPath: '.'
         },
         files: {
-          './dist/assets/css/style.css': './dist/assets/css/style.scss'
+          './dist/assets/css/style.css': './src/assets/scss/style.scss'
         }
       }
     },
@@ -103,5 +128,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-newer');
 
   grunt.registerTask("dev", ["newer:babel", "newer:ngAnnotate","newer:copy", "sass"]);
-  grunt.registerTask("default", ["dev", "watch"]);
+  grunt.registerTask("default", ["babel", "ngAnnotate","copy", "sass", "watch"]);
 }
