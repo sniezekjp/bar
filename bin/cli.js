@@ -45,7 +45,7 @@ if(args[0] === 'generate') {
 
       var dep = "import " + module + " from " + "'modules/"+module+"/states';";
       var pattern = '/// dependencies (do not remove)';
-      var bsFile = path.join(cwd,'src', 'app', 'bootstrap.js');
+      var bsFile = path.join(cwd,'src', 'bootstrap', 'init.js');
       var bsContent = fs.readFileSync(bsFile, {encoding: 'utf-8'});
       if(bsContent.indexOf(dep) === -1) {
         bsContent = bsContent.replace(pattern, dep + "\n" + pattern);
