@@ -36,7 +36,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'dist/modules/**/*.html': 'ng-html2js'
+        'dist/modules/**/*.html': 'ng-html2js',
+        'dist/components/**/*.html': 'ng-html2js'
     },
 
 

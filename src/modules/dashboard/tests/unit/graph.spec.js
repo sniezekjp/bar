@@ -21,8 +21,4 @@ describe('graph', function () {
     elm.find('input').val('hello').trigger('input');
     expect($scope.value).toBe("hello");
   });
-
-  it('should b awesome', function () {
-    expect(true).toBe(true);
-  });
 });

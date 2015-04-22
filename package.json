@@ -31,7 +31,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "optimize": "r.js -o build.js name=bootstrap/config out=dist/bootstrap/config.min.js"
+    "o": "r.js -o build.js name=bootstrap/config out=dist/bootstrap/config.min.js"
   },
   "author": "",
   "license": "ISC"

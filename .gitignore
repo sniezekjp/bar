@@ -4,5 +4,7 @@ dist/modules
 dist/base
 dist/components
 dist/assets/css/*.css
+tests/**
+!tests/config.js
 node_modules
 .sass-cache

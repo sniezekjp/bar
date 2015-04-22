@@ -102,6 +102,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-newer');
 
-  grunt.registerTask("dev", ["newer:babel", "ngAnnotate","newer:copy", "sass"]);
+  grunt.registerTask("dev", ["newer:babel", "newer:ngAnnotate","newer:copy", "sass"]);
   grunt.registerTask("default", ["dev", "watch"]);
 }
