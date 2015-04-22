@@ -81,7 +81,16 @@ module.exports = function(grunt) {
       }
     },
     // clean tasks
-    clean: ['dist/modules', 'dist/components']
+    clean: ['dist/modules', 'dist/components'],
+    // annotate
+    ngAnnotate: {
+      options: {},
+      build: {
+        files: [{
+          expand: true
+        }]
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-babel');

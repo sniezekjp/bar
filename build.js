@@ -1,10 +1,10 @@
-require.config({
+({
   baseUrl: './dist',
   paths: {
     jquery  : 'vendor/jquery/dist/jquery',
     angular : 'vendor/angular/angular',
     router  : 'vendor/angular-ui-router/release/angular-ui-router',
-    app     : 'app',
+    app     : 'app/app',
     modules : 'modules',
     lazy    : 'app/lazy',
     base    : 'base'
@@ -19,5 +19,5 @@ require.config({
     },
     router: ['angular']
   },
-  deps: ['app/bootstrap']
-});
+  deps: ['./bootstrap/init']
+})

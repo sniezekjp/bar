@@ -35,4 +35,4 @@ define(["exports", "router", "lazy", "angular", "components/components", "module
     angular.bootstrap(document, ["app"]);
   });
 });
-//# sourceMappingURL=bootstrap.js.map
+//# sourceMappingURL=init.js.map

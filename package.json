@@ -18,6 +18,7 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-sass": "^0.9.2",
     "grunt-newer": "^1.1.0",
+    "grunt-ng-annotate": "^0.10.0",
     "jasmine-core": "^2.2.0",
     "jasmine-spec-reporter": "^2.1.0",
     "karma": "^0.12.31",
@@ -29,7 +30,8 @@
     "requirejs": "^2.1.16"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "optimize": "r.js -o build.js name=bootstrap/config out=dist/bootstrap/config.min.js"
   },
   "author": "",
   "license": "ISC"

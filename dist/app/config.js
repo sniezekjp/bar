@@ -9,6 +9,7 @@ define(["exports"], function (exports) {
       router: "vendor/angular-ui-router/release/angular-ui-router",
       app: "app/app",
       modules: "modules",
+      components: "components",
       lazy: "app/lazy",
       base: "base"
     },
@@ -22,7 +23,7 @@ define(["exports"], function (exports) {
       },
       router: ["angular"]
     },
-    deps: ["app/bootstrap"]
+    deps: ["../app/bootstrap"]
   });
 });
 //# sourceMappingURL=config.js.map
