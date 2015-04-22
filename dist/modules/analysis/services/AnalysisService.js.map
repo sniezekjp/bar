@@ -1,1 +1,0 @@
-{"version":3,"sources":["src/modules/analysis/services/AnalysisService.js"],"names":[],"mappings":";;;;;MAAO,GAAG;;;;AAGV,KAAG,CAAC,OAAO,CAAC,iBAAiB,EAAE,YAAW,EAEzC,CAAC,CAAC","file":"src/modules/analysis/services/AnalysisService.js","sourcesContent":["import app from 'lazy';\n// dependencies (do not remove)\n\napp.service('AnalysisService', function() {\n  \n});"]}

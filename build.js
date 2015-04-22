@@ -1,5 +1,6 @@
 ({
   baseUrl: './dist',
+  include: 'requireLib',
   paths: {
     jquery  : 'vendor/jquery/dist/jquery',
     angular : 'vendor/angular/angular',
@@ -7,7 +8,8 @@
     app     : 'app/app',
     modules : 'modules',
     lazy    : 'app/lazy',
-    base    : 'base'
+    base    : 'base',
+    requireLib: 'vendor/requirejs/require'
   },
   shim: {
     jquery: {

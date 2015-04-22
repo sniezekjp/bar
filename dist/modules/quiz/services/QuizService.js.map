@@ -1,1 +1,0 @@
-{"version":3,"sources":["src/modules/quiz/services/QuizService.js"],"names":[],"mappings":";;;;;MAAO,GAAG;;;;AAGV,KAAG,CAAC,OAAO,CAAC,aAAa,EAAE,YAAW,EAErC,CAAC,CAAC","file":"src/modules/quiz/services/QuizService.js","sourcesContent":["import app from 'lazy';\n// dependencies (do not remove)\n\napp.service('QuizService', function() {\n  \n});"]}

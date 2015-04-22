@@ -1,1 +1,0 @@
-{"version":3,"sources":["src/modules/quiz/controllers/QuizController.js"],"names":[],"mappings":";;;;;MAAO,GAAG;;;;AAGV,KAAG,CAAC,UAAU,CAAC,gBAAgB,EAAE,UAAS,MAAM,EAAE,EAEjD,CAAC,CAAC","file":"src/modules/quiz/controllers/QuizController.js","sourcesContent":["import app from 'lazy';\n// dependencies (do not remove)\n\napp.controller('QuizController', function($scope) {\n\n});"]}

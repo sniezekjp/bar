@@ -38,7 +38,7 @@ module.exports = function(grunt) {
     // Watch tasks
     watch: {
       es: {
-        files: ['src/**/*.js', 'src/**/*.html'],
+        files: ['src/**/*.js'],
         tasks: ['dev']
       },
       src: {
@@ -87,7 +87,8 @@ module.exports = function(grunt) {
       options: {},
       build: {
         files: [{
-          expand: true
+          expand: true,
+          src: ['./dist/modules/**/*.js', './dist/app/*.js']
         }]
       }
     }
@@ -98,8 +99,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-newer');
 
-  grunt.registerTask("dev", ["newer:babel", "newer:copy", "sass"]);
+  grunt.registerTask("dev", ["newer:babel", "ngAnnotate","newer:copy", "sass"]);
   grunt.registerTask("default", ["dev", "watch"]);
 }

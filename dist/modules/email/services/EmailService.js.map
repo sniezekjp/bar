@@ -1,1 +1,0 @@
-{"version":3,"sources":["src/modules/email/services/EmailService.js"],"names":[],"mappings":";;;;;MAAO,GAAG;;;;AAGV,KAAG,CAAC,OAAO,CAAC,cAAc,EAAE,YAAW,EAEtC,CAAC,CAAC","file":"src/modules/email/services/EmailService.js","sourcesContent":["import app from 'lazy';\n// dependencies (do not remove)\n\napp.service('EmailService', function() {\n  \n});"]}
