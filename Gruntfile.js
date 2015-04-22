@@ -11,15 +11,15 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'src',
-          src: ['**/*.js', '!tests/**/*.js'],
+          src: ['**/*.js', '!tests/**/*.js', '!**/*.spec.js'],
           dest: './dist'
         }]
       },
       unit: {
         files: [{
           expand: true,
-          cwd: 'src/tests',
-          src: ['**/unit/*.js'],
+          cwd: 'src/modules',
+          src: ['**/tests/unit/*.js'],
           dest: './tests'
         }]
       },
@@ -29,8 +29,8 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'src/tests',
-          src: ['**/e2e/*.js'],
+          cwd: 'src/modules',
+          src: ['**/tests/e2e/*.js'],
           dest: './tests'
         }]         
       }
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/components',
           src: '**/*.html',
-          dest: 'dist/components'
+          dest: 'dist/components' 
         }]
       }
     },
@@ -79,13 +79,16 @@ module.exports = function(grunt) {
           './dist/assets/css/style.css': './dist/assets/css/style.scss'
         }
       }
-    }
+    },
+    // clean tasks
+    clean: ['dist/modules', 'dist/components']
   });
 
   grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-sass')
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-newer');
 
   grunt.registerTask("dev", ["newer:babel", "newer:copy", "sass"]);

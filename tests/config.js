@@ -20,7 +20,8 @@ requirejs.config({
       app: "app/_app",
       modules: "modules",
       lazy: "app/_app",
-      base: "base"
+      base: "base",
+      utils: "utils"
     },
 
     // shim globals where necessary

@@ -1,1 +1,0 @@
-{"version":3,"sources":["es6/app/testApp.js"],"names":[],"mappings":";;;;;MAAO,OAAO;;AACd,MAAI,GAAG,GAAG,OAAO,CAAC,MAAM,CAAC,KAAK,EAAE,EAAE,CAAC,CAAC;mBACrB,GAAG","file":"es6/app/testApp.js","sourcesContent":["import angular from 'angular';\nvar app = angular.module('app', []);\nexport default app;"]}

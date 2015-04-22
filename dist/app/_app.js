@@ -3,6 +3,8 @@ define(["exports", "module", "angular"], function (exports, module, _angular) {
 
   var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
+  // This is used by karma for testing..
+
   var angular = _interopRequire(_angular);
 
   var app = angular.module("app", ["templates"]);

@@ -22,7 +22,7 @@ define(["exports"], function (exports) {
       },
       router: ["angular"]
     },
-    deps: ["../app/bootstrap"]
+    deps: ["app/bootstrap"]
   });
 });
 //# sourceMappingURL=config.js.map
